@@ -6,14 +6,21 @@ class Program
 {
     static void Main(string[] args)
     {
+        string password = "myPass.1";
+        bool answer = false;
+        do {
+            Console.Write("Enter the password: ");
+            string userInput = Console.ReadLine();
+            if (userInput == password) {
+                answer = true;
+                
+            }
+        } while (!answer);
+
         bool finished = false;
         Journal myJournal = new Journal();
-        List<Entry> readEntries = new List<Entry>();
-        foreach (Entry e in readEntries){
-
-            Console.WriteLine(e._dateEntry);
-        }
-
+        Console.Clear();
+        Console.WriteLine("Welcome!");
         do {
             
             Console.WriteLine("1. Write");
@@ -49,7 +56,8 @@ class Program
                 case 3:
                     Console.Write("Enter the name of the file: ");
                     string fileToLoad = Console.ReadLine();
-                    Load(fileToLoad);
+                    myJournal._entries = Load(fileToLoad);
+                    Console.WriteLine("Choose option 2 to display loaded entries");
                     break;
                 case 4:
                     Console.Write("Enter the name of the file: ");
@@ -80,6 +88,16 @@ class Program
     {
         List<Entry> entries = new List<Entry>();
         string[] lines = System.IO.File.ReadAllLines(filename);
+        foreach (string line in lines){
+            string[] parts = line.Split("±");
+
+            Entry newEntry = new Entry();
+            newEntry._dateEntry = parts[0];
+            newEntry._prompt = parts[1];
+            newEntry._textEntry = parts[2];
+            
+            entries.Add(newEntry);
+        }
 
         return entries;
     } 
