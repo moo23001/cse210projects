@@ -4,10 +4,15 @@ class Program
 {
     static void Main(string[] args)
     {
-        string mockScripture = "If ye love me, keep my commandments.";
-        string mockReference = "John 14:15";
-        Reference myReference = new Reference(mockReference);
-        Scripture myScripture = new Scripture(mockScripture);
+        Console.Clear();
+        Console.Write("Enter a scripture reference: ");
+        string scriptureReference = Console.ReadLine();
+        Console.WriteLine("Enter the scripture text");
+        string scriptureText = Console.ReadLine();
+        //string mockScripture = "If ye love me, keep my commandments.";
+        //string mockReference = "John 14:15";
+        Reference myReference = new Reference(scriptureReference);
+        Scripture myScripture = new Scripture(scriptureText);
 
     
 
