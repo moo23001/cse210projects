@@ -28,8 +28,7 @@ public class Reference
              _startverse = int.Parse(splitReference[1]);
         }
       
-        
-
+    
    }
 
     public void DisplayReference(){
