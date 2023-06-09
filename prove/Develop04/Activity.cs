@@ -22,11 +22,7 @@ public class Activity
     public int GetTime(){
         return _time;
     }
-
-    public void StartMessage(){
-        Console.WriteLine(_description);
-    }
-
+    
     public void EndMessage(){
         Console.WriteLine($"\nYou have completed {GetTime()} seconds of the {_activityName} activity");
     }
