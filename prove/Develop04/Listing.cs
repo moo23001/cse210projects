@@ -29,7 +29,7 @@ public class Listing : Activity
         Console.WriteLine();
         DateTime startTime = DateTime.Now;
         DateTime endTime = startTime.AddSeconds(time);
-        List<int> listedItems = new List<int>();
+        List<string> listedItems = new List<string>();
         while (DateTime.Now < endTime){
             Console.Write("> ");
             string item = Console.ReadLine();
