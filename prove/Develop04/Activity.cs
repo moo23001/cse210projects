@@ -12,14 +12,6 @@ public class Activity
         _description = description;
     }
 
-    public void SetActivityName(string text){
-        _activityName = text;
-    }
-
-    public string GetActivityName(){
-        return _activityName;
-    }
-
     public string GetDescription(){
         return _description;
     }
