@@ -12,6 +12,15 @@ public class Checklist : Goals
     public Checklist(){
 
     }
+    public override int GetBonus(){
+        return _bonus;
+    }
+    public override int GetAttempts(){
+        return _attempts;
+    }
+    public override int GetCompleted(){
+        return _completed;
+    }
 
     public override int RecordEvent()
     {

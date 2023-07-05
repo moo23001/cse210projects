@@ -46,11 +46,17 @@ class Program
                         Console.Read();
                         break;
                     case 3:
-
+                        Console.Clear();
+                        Console.Write("Enter the file name: ");
+                        string fileName = Console.ReadLine();
+                        Save(fileName,_goalsList);
                         break;
 
                     case 4:
-
+                        Console.Clear();
+                        Console.Write("Enter the file name: ");
+                        string loadFile = Console.ReadLine();
+                        _goalsList = Load(loadFile);
                         break;
                     case 5:
                         Console.Clear();
@@ -120,18 +126,46 @@ class Program
         }
 
     }
+    void Save(string filename, List<Goals> goals)
+    {
+        using (StreamWriter outputFile = new StreamWriter(filename))
+        {
+            outputFile.WriteLine(totalPoints);
+          foreach (Goals g in goals)
+            {
+                outputFile.WriteLine($"{g.GetGoalType()}±{g.GetName()}±{g.GetDescription()}±{g.GetPoints()}±{g.GetIsCompleted()}±{g.GetBonus()}±{g.GetAttempts()}±{g.GetCompleted()}");        
+            }
+        }
+    }
+    static List<Goals> Load(string filename)
+    {
+        List<Goals> goals = new List<Goals>();
+        string[] lines = System.IO.File.ReadAllLines(filename);
+        foreach (string line in lines)
+        {
+            string[] parts = line.Split("±");
+            if (int.Parse(parts[0]) == 1){
+                Simple simpleGoal = new Simple(int.Parse(parts[0]), parts[1], parts[2], int.Parse(parts[3]), bool.Parse(parts[4]));
+                goals.Add(simpleGoal);
+
+            }else if(int.Parse(parts[0]) == 2){
+                Eternal eternalGoal = new Eternal(int.Parse(parts[0]), parts[1], parts[2], int.Parse(parts[3]), bool.Parse(parts[4]));
+                goals.Add(eternalGoal);
+
+            }else{
+                Checklist checklistGoal = new Checklist(int.Parse(parts[0]), parts[1], parts[2], int.Parse(parts[3]), bool.Parse(parts[4]), int.Parse(parts[5]), int.Parse(parts[6]), int.Parse(parts[7]));
+                goals.Add(checklistGoal);
+            }
+
+        }
+
+        return goals;
+    }
+
 
     }
-//    public static void Save(string filename, List<Goals> goals)
-//    {
-//        using (StreamWriter outputFile = new StreamWriter(filename))
-//        {
-//          foreach (Goals g in goals)
-//            {
-//                outputFile.WriteLine($"{g.GetGoalType()}±{g.GetName()}±{g.GetDescription()}±{g.GetPoints()}±{g.GetIsCompleted()}");
-//            }
-//        }
-//    }
+    
+
 
 
 

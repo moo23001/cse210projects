@@ -49,6 +49,15 @@ public abstract class Goals
 
     public abstract int RecordEvent();
     public abstract Goals CreateGoal(int goalOption);
+    public virtual int GetBonus(){
+        return 0;
+    }
+    public virtual int GetAttempts(){
+        return 0;
+    }
+    public virtual int GetCompleted(){
+        return 0;
+    }
 
 
 public static int ValidateIntOption(string message, int lower = 0, int upper = 9999999)
