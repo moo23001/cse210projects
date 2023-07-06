@@ -78,10 +78,8 @@ class Program
                     default:
                         break;
                 }
-
-            }
-            else
-            {
+                continue;
+            }else{
                 Console.Write("This is not an option number. Enter an option from 1 - 4. Press enter to continue...");
                 Console.ReadLine();
                 continue;
@@ -137,11 +135,13 @@ class Program
             }
         }
     }
-    static List<Goals> Load(string filename)
+    List<Goals> Load(string filename)
     {
         List<Goals> goals = new List<Goals>();
         string[] lines = System.IO.File.ReadAllLines(filename);
-        foreach (string line in lines)
+        totalPoints = int.Parse(lines[0]);
+        string[] remainingLines = lines.Skip(1).ToArray();
+        foreach (string line in remainingLines)
         {
             string[] parts = line.Split("±");
             if (int.Parse(parts[0]) == 1){

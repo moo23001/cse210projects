@@ -15,7 +15,7 @@ public class Simple : Goals
         string goalDescription = Console.ReadLine();
         int goalPoints = ValidateIntOption("Points awarded to this goal", 1);
         Simple goal = new Simple(goalOption, goalName, goalDescription, goalPoints, false);
-        Console.Write("Goal has been created");
+        Console.Write("\nGoal has been created");
         Thread.Sleep(3000);
         return goal;
     }
