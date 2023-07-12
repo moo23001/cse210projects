@@ -4,9 +4,9 @@ public Rare (string cardName, string cardType, int attackPoints, int defensePoin
 
 }
     public override int GetAttackPoints(){
-        return (int)(base.GetAttackPoints() * 1.5);
+        return (_attackPoints * 2);
     }
         public override int GetDefensePoints(){
-        return (int)(base.GetDefensePoints() * 1.4);
+        return (_defensePoints * 2);
     }
 }

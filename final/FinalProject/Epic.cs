@@ -4,9 +4,9 @@ public Epic (string cardName, string cardType, int attackPoints, int defensePoin
 
 }
     public override int GetAttackPoints(){
-        return (int)(base.GetAttackPoints() * 1.8);
+        return (_attackPoints * 3);
     }
         public override int GetDefensePoints(){
-        return (int)(base.GetDefensePoints() * 1.1);
+        return (_defensePoints * 1);
     }
 }

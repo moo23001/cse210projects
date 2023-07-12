@@ -5,9 +5,9 @@ public Common (string cardName, string cardType, int attackPoints, int defensePo
 }
 
     public override int GetAttackPoints(){
-        return (int)(base.GetAttackPoints() * 1.2);
+        return (_attackPoints * 1);
     }
     public override int GetDefensePoints(){
-        return (int)(base.GetDefensePoints() * 1.8);
+        return (_defensePoints * 2);
     }
 }

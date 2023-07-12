@@ -3,7 +3,7 @@ public class Card
     protected string _cardName;
     private string _cardType;
     protected int _attackPoints;
-    private int _defensePoints;
+    protected int _defensePoints;
 
 
     public Card (string cardName, string cardType, int attackPoints, int defensePoints){
@@ -18,9 +18,9 @@ public class Card
     }
 
     public virtual int GetAttackPoints(){
-        return 0;
+        return 1;
     }
     public virtual int GetDefensePoints(){
-        return 0;
+        return 1;
     }
 }

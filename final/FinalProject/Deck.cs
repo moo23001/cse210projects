@@ -15,7 +15,7 @@ public class Deck
     public Card DrawCard(){
         int index = rnd.Next(cards.Count);
         Card drawnCard = cards[index];
-        cards.RemoveAt(index);
+        //cards.RemoveAt(index);
         return drawnCard;
     }
 
