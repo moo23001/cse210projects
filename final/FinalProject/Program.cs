@@ -4,6 +4,9 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello FinalProject World!");
+        Console.Clear();
+        Game game = new Game("Player 1", "Player 2");
+        game.StartGame();
+
     }
 }
