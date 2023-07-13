@@ -23,13 +23,14 @@ public class Game
     }
     public void StartGame(){
         Console.Clear();
+        Console.Clear();
         string welcome = "Welcome to the Card Battle Game!\n";
         Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (welcome.Length / 2)) + "}", welcome));
         string versus = $"{_player1.GetPlayerName()} vs. {_player2.GetPlayerName()}\n";
         Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (versus.Length / 2)) + "}", versus));
         string message = "Let the battle begin! Press Enter to start...\n";
         Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + ((message.Length / 2) + 1)) + "}", message));
-        
+        Console.ReadLine();
 
     }
     public void PlayTurn(){
@@ -40,6 +41,7 @@ public class Game
             _player1.Attack(_player1, player1AttackCard, _player2, player2DefendCard);
 
             Console.WriteLine($"{_player2.GetPlayerName()}'s remaining health: {_player2.GetHealthPoints()}\n");
+            Thread.Sleep(3000);
         }
         if (_player2.GetHealthPoints() > 0){
             Card player2AttackCard = _player2.GetDeck().DrawCard();
@@ -48,6 +50,7 @@ public class Game
             _player2.Attack(_player2, player2AttackCard, _player1, player1DefendCard);
 
             Console.WriteLine($"{_player1.GetPlayerName()}'s remaining health: {_player1.GetHealthPoints()}\n");
+            Thread.Sleep(2000);
         }
     }
 
